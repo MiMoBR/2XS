@@ -2,9 +2,8 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import useState from 'react-hook-use-state'
 
-const Search = () => {
-
-    const { register, watch, handleSubmit  } = useForm()
+const Search = ({ toSearch }) => {
+    const { register, watch, handleSubmit     } = useForm()
     
     const [ namePlace, setNamePlace ] = useState('')
     const [ minTemp, setMinTemp ] = useState('') 
@@ -16,11 +15,11 @@ const Search = () => {
         console.log(e)
         setTypeTemp(e.target.value)
         setTypeTempInfo(e.target.selectedOptions[0].innerHTML)
-        
     }
+    
     const onSubmit = async (data) => {
-        const dataLat = data.lat
-        const dataLong = data.long
+        const dataLat = toSearch.lat
+        const dataLong = toSearch.lng
         const typeMetric = typeTemp // Fahrenheit  = imperial || Celsius = metric
         console.log('typeMetric', typeMetric)
 
@@ -35,14 +34,12 @@ const Search = () => {
         } catch (err) {
             console.error('err', err);
         }
-    
-    
     }
 
     return(
         <section>
             <div>
-                <div><p>Choose the place you want to know the temperature</p></div>
+                <div><h2>Choose the place you want to know the temperature</h2></div>
                 {/* <pre style={{backgroundColor:`black`,width:`15rem`,height:`18rem`,left:`0`,color:`white`}}>
                     {JSON.stringify(watch(), null, 2)}
                 </pre> */}
@@ -60,12 +57,14 @@ const Search = () => {
                                 name="lat" id="lat"
                                 placeholder="lat"
                                 {...register("lat")} 
+                                disabled
                             />
                             <input
                                 type="text"
                                 name="long" id="long"
                                 placeholder="long"
                                 {...register("long")} 
+                                disabled
                             />
                         </div>
                         <div>

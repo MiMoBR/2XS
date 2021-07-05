@@ -18,4 +18,12 @@ start
 8 - On main content, I shared in 2 components: Search and Map
 9 - Import react-hook-use-state and react-hook-form to Search form
 10 - Create a simple form to test the api working with Lat/Lon by inputs
-11 - Import react-open-weather
+11 - Test with Lat/Long informations to test Name City, Minimum temperature and Maximum temperature 
+12 - EXTRA FEATURE - select with temperature option
+13 - Create a Map component
+14 - Import google-map-react to find any geolocation 
+15 - Create a map using Google MapPI and make a marker graggable
+16 - Send the complete object received by dragged movement on map to Main component
+17 - set on useState and send to Search component
+18 - After Drop the pin and click on button to search, the name of city, Minimum temperature and Maximum temperature will show
+19 - Develop the Layout design
