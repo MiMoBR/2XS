@@ -1,6 +1,6 @@
 Test 2XS
 
-To Intall
+1 - To Intall react.js
 
 https://github.com/MiMoBR/2XS.git
 https://code.visualstudio.com/docs/nodejs/reactjs-tutorial
@@ -9,3 +9,13 @@ cd test-2xs
 yarn run
 start 
 
+2 - Create app ID on https://openweathermap.org/ - 0f8dab54752120a48be014ca3905bc5e
+3 - Consuming test on Postman, made a Get with a Lat/Log and send by api.openweathermap.org/data/2.5/weather?lat=-23.620368&lon=-46.619577&appid=0f8dab54752120a48be014ca3905bc5e
+4 - Applying Atomic Design - create foulders: pages, components, services and styles (this one is contain a main css not a component css)
+5 - Create a page IndexPage, that´ll use a Layout component
+6 - On Layout we´ll have the unique Header and Footer components for app
+7 - Create a simple Header and Footer
+8 - On main content, I shared in 2 components: Search and Map
+9 - Import react-hook-use-state and react-hook-form to Search form
+10 - Create a simple form to test the api working with Lat/Lon by inputs
+11 - Import react-open-weather
