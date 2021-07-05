@@ -6,7 +6,7 @@ const Header = () => {
         <header>
             <div className="container-fluid">
                 <div>
-                    <h1>Here the header!</h1>
+                    <h1>2XS Swap Test - Find the temperature of the place you want</h1>
                 </div>
             </div>
         </header>

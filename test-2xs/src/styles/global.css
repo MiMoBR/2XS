@@ -162,9 +162,14 @@ button {
 }
 
 select {
+    border-radius: 1rem;
+    line-height: 2;
+    padding: 0 1.25rem;
+    background-color: var(--gray);
+    color: var(--white);
+    font-weight: 600;
     margin: 1rem;
     width: 4rem;
-    padding: 0.25rem;
     border: none;
     height: 3rem;
     margin: 50px;
@@ -172,8 +177,6 @@ select {
     -moz-appearance: none;
     appearance: none;
     font-family: sans-serif;
-    font-weight: 500;
-    line-height: 2.5;
     text-align: center;
     /* background: url() 96% / 15% no-repeat #EEE; */
 }
