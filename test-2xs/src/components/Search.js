@@ -1,6 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import useState from 'react-hook-use-state'
+import '../components/styles/search.css'
 
 const Search = ({ toSearch }) => {
     const { register, watch, handleSubmit     } = useForm()
@@ -37,65 +38,73 @@ const Search = ({ toSearch }) => {
     }
 
     return(
-        <section>
-            <div>
-                <div><h2>Choose the place you want to know the temperature</h2></div>
+        <section className="search">
+            <div className="search__place">
+                <div className="search__title">
+                    <h2>2º After choosing the location, choose the type of temperature and click the search temperature button.</h2>
+                </div>
                 {/* <pre style={{backgroundColor:`black`,width:`15rem`,height:`18rem`,left:`0`,color:`white`}}>
                     {JSON.stringify(watch(), null, 2)}
                 </pre> */}
-                <div>
+                <div className="search__form">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <div>
-                            <select onChange={changeType}>
-                                <option value="metric" name="°C">°C</option>
-                                <option value="imperial" name="°F">°F</option>
-                            </select>
+                        <div className="search_run dflex dflex-aligncenter">
+                            <div className="search__inputs">
+                                <input
+                                    type="text"
+                                    name="lat" id="lat"
+                                    placeholder="lat"
+                                    {...register("lat")} 
+                                    disabled
+                                />
+                                <input
+                                    type="text"
+                                    name="long" id="long"
+                                    placeholder="long"
+                                    {...register("long")} 
+                                    disabled
+                                />
+                            </div>
+                            <div className="search__select">
+                                <select onChange={changeType}>
+                                    <option value="metric" name="°C">°C</option>
+                                    <option value="imperial" name="°F">°F</option>
+                                </select>
+                            </div>
+                            <div className="search__btn">
+                                <button 
+                                    type="submit"
+                                    className="btnSearch"
+                                >
+                                    Search Temperature
+                                </button>
+                            </div>
                         </div>
-                        <div>
-                            <input
-                                type="text"
-                                name="lat" id="lat"
-                                placeholder="lat"
-                                {...register("lat")} 
-                                disabled
-                            />
-                            <input
-                                type="text"
-                                name="long" id="long"
-                                placeholder="long"
-                                {...register("long")} 
-                                disabled
-                            />
-                        </div>
-                        <div>
-                            <button 
-                                type="submit"
-                            >
-                                Click to find the temperature
-                            </button>
-                        </div>
-                        <div>
-                            <div>
-                                <p>Results:</p>
+                        <hr/>
+                        <div className="search__results">
+                            <div className="search__title">
+                                <h2>3º After click the results will appear here</h2>
                             </div>
                             <div>
-                                <div>
+                                <div className="dflex dflex-aligncenter">
                                     <p>
-                                        <b>Name of city </b>
+                                        Place 
+                                    </p>
+                                    <h5 className="ml-2">
                                         {namePlace}
-                                    </p>
+                                    </h5>
                                 </div>
-                                <div>
+                                <div className="dflex dflex-aligncenter">
                                     <p>
-                                        <b>Minimum temperature { typeTempInfo } </b>
-                                        {minTemp}
+                                        Minimum temperature { typeTempInfo } 
                                     </p>
+                                    <h5 className="ml-2">{minTemp}</h5>
                                 </div>
-                                <div>
+                                <div className="dflex dflex-aligncenter">
                                     <p>
-                                        <b>Maximum temperature { typeTempInfo } </b>
-                                        {maxTemp}
+                                        Maximum temperature { typeTempInfo } 
                                     </p>
+                                    <h5 className="ml-2">{maxTemp}</h5>
                                 </div>
                             </div>
                         </div>

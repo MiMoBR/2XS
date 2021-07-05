@@ -1,0 +1,15 @@
+.map {
+    width: 100%;
+    background-color: var(--grayLight);
+    padding: 1rem;
+}
+
+.map h2 {
+    color: var(--blue);
+}
+
+@media (min-width: 768px){
+    .map {
+        width: 50%;
+    }
+}

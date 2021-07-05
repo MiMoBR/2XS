@@ -1,5 +1,6 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
+import '../components/styles/map.css'
 
 const Map = ({ onChangeCallBack }) => {
     const loadMap = (map, maps) => {
@@ -12,10 +13,10 @@ const Map = ({ onChangeCallBack }) => {
     }
 
     return (
-        <section>
-            <div>
+        <section className="map">
+            <div className="map_place">
                 <div>
-                    <h2>Find the place</h2>
+                    <h2>1º Drag the pin where you want to know the temperature</h2>
                 </div>
                 <div style={{ height: '400px', width: '100%' }}>
                     <GoogleMapReact

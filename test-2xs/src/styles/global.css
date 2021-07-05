@@ -2,15 +2,10 @@
     --white:#ffffff;
     --grayUltraLight:#ecf0f1;
     --grayLight:#cccccc;
-    --bovControl:#46A0CD;
-    --bovDairy:#3FCAFC;
-    --bovGenetics:#2F6994;
+    --blue:#2F6994;
     --blackBov: #000000;
-    --grayBov:#999;
+    --gray:#999;
     --darkGray:#2f3640;
-    --bovData: #444444;
-    --bovImpact:#62942F;
-    --bovBeef:#863944;
 }
 
 body {
@@ -84,6 +79,7 @@ p {
     font-size: clamp(0.95rem, 2vw, 1.0rem);
     font-weight: 100;
     line-height: 1.3;
+    font-family: 'Roboto-Thin', sans-serif;
 }
 
 strong {
@@ -104,4 +100,95 @@ header,
 nav,
 section {
     display: block;
+}
+
+.container, .container-fluid {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.dflex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.dflex-aligncenter {
+    align-items: center;
+}
+
+.ml-1 {
+    margin-left: 1rem;
+}
+
+.ml-2 {
+    margin-left: 2rem;
+}
+
+button {
+    border-radius: 10rem;
+    border: none;
+    display: block;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: medium;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.btnSearch {
+    background: linear-gradient(90deg, #2980b9 0%, #3FCAFC 100%);
+    border-radius: 10rem;
+    border: none;
+    display: block;
+    cursor: pointer;
+    color: var(--white);
+    font-family: sans-serif;
+    font-weight: 500;
+    line-height: 2.5;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: initial;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 100%;
+}
+
+select {
+    margin: 1rem;
+    width: 4rem;
+    padding: 0.25rem;
+    border: none;
+    height: 3rem;
+    margin: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: sans-serif;
+    font-weight: 500;
+    line-height: 2.5;
+    text-align: center;
+    /* background: url() 96% / 15% no-repeat #EEE; */
+}
+
+select::-ms-expand {
+    display: none; /* Remove default arrow in Internet Explorer 10 and 11 */
+}
+
+select:focus-visible {
+    outline: -webkit-focus-ring-color auto 0px;
+}
+
+@media screen and (min-width:0\0) {
+    select {
+        background: none\9;
+        padding: 5px\9;
+    }
 }

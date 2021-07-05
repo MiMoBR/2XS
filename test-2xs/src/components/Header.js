@@ -1,8 +1,15 @@
 import React from 'react'
+import '../components/styles/header.css'
 
 const Header = () => {
     return(
-        <div><h1>Here the header!</h1></div>
+        <header>
+            <div className="container-fluid">
+                <div>
+                    <h1>Here the header!</h1>
+                </div>
+            </div>
+        </header>
     )
 }
 
