@@ -2,9 +2,11 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import useState from 'react-hook-use-state'
 import '../components/styles/search.css'
+import PopUpLoading from '../services/popupLoading'
+import PopUpErro from '../services/popupError'
 
 const Search = ({ toSearch }) => {
-    const { register, watch, handleSubmit     } = useForm()
+    const { register, watch, handleSubmit } = useForm({mode:"all"})
     
     const [ namePlace, setNamePlace ] = useState('')
     const [ minTemp, setMinTemp ] = useState('') 
@@ -13,7 +15,6 @@ const Search = ({ toSearch }) => {
     const [ typeTempInfo, setTypeTempInfo ] = useState('°C') 
     
     const changeType = (e) => {
-        console.log(e)
         setTypeTemp(e.target.value)
         setTypeTempInfo(e.target.selectedOptions[0].innerHTML)
     }
@@ -22,23 +23,46 @@ const Search = ({ toSearch }) => {
         const dataLat = toSearch.lat
         const dataLong = toSearch.lng
         const typeMetric = typeTemp // Fahrenheit  = imperial || Celsius = metric
-        console.log('typeMetric', typeMetric)
 
+        
         try {
-            const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${dataLat}&lon=${dataLong}&units=${typeMetric}&appid=0f8dab54752120a48be014ca3905bc5e`);
-            const json = await res.json();
+            modalLoading()
+            const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${dataLat}&lon=${dataLong}&units=${typeMetric}&appid=0f8dab54752120a48be014ca3905bc5e`)
+            const json = await res.json()
             console.log('json', json)
-
+            modalLoading()
             setNamePlace(json.name)
             setMinTemp(json.main.temp_min)
             setMaxTemp(json.main.temp_max)
-        } catch (err) {
-            console.error('err', err);
+        } catch (error) {
+            modalLoading()
+            console.error('error        ', error)
+            popupErro()
         }
     }
 
+    const [ showmodalLoading, setShowmodalLoading ] = useState(false)
+    const modalLoading = () => {
+        setShowmodalLoading(state => ! state)
+    }
+
+    const [ closePopupErro, setclosePopupErro ] = useState(false)
+    const popupErro = () => {
+        setclosePopupErro(state => ! state)
+    }
+
     return(
-        <section className="search">
+        <section className="search">      
+            { showmodalLoading && 
+                <PopUpLoading
+                    onClose={ () => modalLoading}
+                />
+            }
+            { closePopupErro && 
+                <PopUpErro
+                    onClose={ () => popupErro }
+                />
+            }
             <div className="search__place">
                 <div className="search__title">
                     <h2>2º After choosing the location, choose the type of temperature and click the search temperature button.</h2>
