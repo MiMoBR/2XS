@@ -12,15 +12,17 @@ const Map = ({ onChangeCallBack }) => {
         return marker
     }
 
+    //  API Old -  AIzaSyCWyRwKHe0mexDkcs2dkgbBCgDIT9324hY
+    //  API New -  AIzaSyA5WfLUsHDhEo5WTXhkLvN3DLsMCK4xmKo
     return (
         <section className="map">
             <div className="map_place">
                 <div>
                     <h2>1º Drag the pin where you want to know the temperature</h2>
                 </div>
-                <div style={{ height: '400px', width: '100%' }}>
-                    <GoogleMapReact
-                        bootstrapURLKeys={{ key: 'AIzaSyCWyRwKHe0mexDkcs2dkgbBCgDIT9324hY' }}
+                <div style={{ height: '400px', width: '100%' }}>       
+                    <GoogleMapReact     
+                        bootstrapURLKeys={{ key: 'AIzaSyA5WfLUsHDhEo5WTXhkLvN3DLsMCK4xmKo' }}
                         defaultCenter={{ lat: -23.555490, lng: -46.589003 }}
                         defaultZoom={10}
                         yesIWantToUseGoogleMapApiInternals

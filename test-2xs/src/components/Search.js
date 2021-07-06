@@ -29,7 +29,7 @@ const Search = ({ toSearch }) => {
             modalLoading()
             const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${dataLat}&lon=${dataLong}&units=${typeMetric}&appid=0f8dab54752120a48be014ca3905bc5e`)
             const json = await res.json()
-            console.log('json', json)
+            //console.log('json', json)
             modalLoading()
             setNamePlace(json.name)
             setMinTemp(json.main.temp_min)
